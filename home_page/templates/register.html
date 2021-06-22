@@ -1,0 +1,63 @@
+
+{% extends "base.html" %}
+{%load static%}
+{% block  body %}
+
+
+	 <link rel="stylesheet" href="{%static 'css/style2.css' %}">
+	</head>
+
+	<body>
+
+		<div class="wrapper" style="background-image: url('{%static 'img/bg-registration-form-2.jpg'%}');">
+			<div class="inner">
+				
+				
+
+							<form action="register" method="post">
+                                	<h3>Registration Form</h3>
+					<div class="form-group">
+						<div class="form-wrapper">
+       {%csrf_token%}
+					<label for="">First Name</label>
+        <input type="text" name="first_name" placeholder="First Name" class="form-control">
+						</div>
+						<div class="form-wrapper">
+							<label for="">Last Name</label>
+							<input class="form-control"type="text" name="last_name" placeholder=" last_name">
+						</div>
+                        <br>
+                   
+					</div>
+					<div class="form-wrapper">
+						<label for="">Email</label>
+						<input class="form-control"type="email" name="email" placeholder="email">
+					</div>
+                      <div class="form-wrapper">
+							<label for="">Username</label>
+							<input class="form-control"type="text" name="username" placeholder=" Username">
+						</div> 
+
+					<div class="form-wrapper">
+						<label for="">Password</label>
+						<input class="form-control"type="password" name="password1" placeholder="Password">
+						</div>
+					<div class="form-wrapper">
+						<label for="">Confirm Password</label>
+						<input class="form-control"type="password" name="password2" placeholder="Confirm Password">
+					</div>
+				
+					
+				  <input class="button" type="submit" >
+						
+				              {%for  message in messages %}
+				             <h3>{{message}}</h3>
+				             {%endfor%}
+				         
+				</form>
+			</div>
+		</div>
+{% block footer %}
+{% endblock %}
+	</body><!-- This templates was made by Colorlib (https://colorlib.com) -->
+{% endblock body %}

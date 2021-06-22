@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{%load static%}
+{% block  body %}
+        <header class="masthead" style="background-image: url({% static 'img/home-bg.jpg' %})">
+            <div class="overlay"></div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-md-10 mx-auto">
+                        <div class="site-heading">
+                            <h1 style="font-size: 65px;">“Blogging is a conversation, not a code.”<br><br><br></h1>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-md-10 mx-auto">
+                    {%for post in posts%}
+                    <div class="post-preview">
+                        <a href="{{post.id}}">
+                            <h2 class="post-title">{{post.title}}</h2>
+                            <h3 class="post-subtitle">{{post.desc}}</h3>
+                        </a>
+                        <p class="post-meta">
+                            Posted by
+                             {{post.author}}
+                            on {{post.published_date}}
+                        </p>
+                    </div>
+                    <hr/>
+                   {%endfor%}
+                    <!-- Pager-->
+                    <div class="clearfix"><a class="btn btn-primary float-right" href="#!">Older Posts →</a></div>
+                </div>
+            </div>
+        </div>
+        <hr/>
+
+{% endblock body %}

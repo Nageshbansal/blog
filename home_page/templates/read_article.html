@@ -1,0 +1,88 @@
+{% extends "base.html" %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block nav %}
+{% endblock %}
+ {% block read %}
+    <!-- Page Header-->
+        <header class="masthead">
+            <div class="container position-relative px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+                        <div class="post-heading">
+                            <h1>{{posts.title}}</h1>
+                            <h2 class="subheading">{{posts.desc}}</h2>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- Post Content-->
+        <article class="mb-4">
+            <div class="container px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+                       <p>{{posts.body}}</p>
+                             <p>Posted By {{user}}</p>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </article>
+
+
+
+
+
+                      
+                     
+
+
+
+
+
+  <div class="container bootstrap snippets bootdey" >
+    <div class="row">
+		<div class="col-md-12">
+		    <div class="blog-comment">
+				<h3 class="text-success">Comments  <a href="{% url 'addcomment' id %}" class="btn btn-info" style="float: right;">ADD</a></h3> 
+                  {% for message in messages %}
+                  <div class="alert alert-success alert-dismissible fade show" role="alert">
+                      {{message}}
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button></div>
+                  {%endfor%}
+                <hr/>
+   {% if not posts.comments.all %}
+      No comments Yet ...... <a href="#">ADD one</a>
+  {%else%}
+        {%for comment in posts.comments.all %}
+				<ul class="comments" >
+				<li class="clearfix">
+				  <div class="post-comments">
+				      <p class="meta">Posted By  <a href="#" style="color: #82b440;">{{comment.name}}</a>
+              <br>On {{comment.date_added}}</p>
+              <p>{{comment.body}}</p>
+				  </div>
+				</li>
+			</ul>
+      {%endfor%}
+     
+  {%endif%}
+
+			</div>
+		</div>
+	</div>
+</div>
+
+   <link rel="stylesheet" href=" {% static 'style3.css' %}">
+
+
+ 
+
+ {% block footer %}
+{% endblock %}
+{%endblock read%} 
+
