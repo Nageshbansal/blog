@@ -5,6 +5,6 @@
 >Created a blog app using Django python framework for backend and Bootstrap for frontend.
 
 
-## Installation
+## Visit
 
->Visit http://node.pythonanywhere.com
+> http://node.pythonanywhere.com
